@@ -39,7 +39,7 @@ class Net(nn.Module):
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, self._get_embedding_size)
+        x = x.view(-1, self._get_embedding_size())
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
@@ -48,7 +48,7 @@ class Net(nn.Module):
     def _get_embedding_size(self):
         x = (32 - (args.conv1_filter_size - 1)) // 2 
         x = (x - (args.conv2_filter_size - 1)) // 2
-        return x * args.conv2_filter_number
+        return x * x * args.conv2_filter_number
 
 
 net = Net()
