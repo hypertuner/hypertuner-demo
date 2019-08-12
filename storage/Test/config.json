@@ -1,0 +1,9 @@
+{
+	"name": "Test",
+	"conv1_filter_number": 6,
+	"conv1_filter_size": 5,
+	"conv2_filter_number": 16,
+	"conv2_filter_size": 5,
+	"learning_rate": 0.01,
+	"momentum": 0.99
+}
