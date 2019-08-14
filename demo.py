@@ -59,7 +59,7 @@ optimizer = optim.SGD(net.parameters(), lr=args.learning_rate, momentum=args.mom
 logger = hypertuner.Logger()
 saver = hypertuner.Saver(net)
 
-for epoch in range(2):  # loop over the dataset multiple times
+for epoch in range(10):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
@@ -77,8 +77,8 @@ for epoch in range(2):  # loop over the dataset multiple times
 
         # print statistics
         running_loss += loss.item()
-        if i % 2000 == 1999:    # print every 2000 mini-batches
-            logger.log({"Loss": running_loss / 2000}, i * (epoch + 1))
+        if i % 1000 == 999:    # print every 2000 mini-batches
+            logger.log({"Loss": running_loss / 1000}, i + epoch * 12000)
             running_loss = 0.0
             saver.save()
 
